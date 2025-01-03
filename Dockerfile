@@ -121,8 +121,7 @@ RUN pip install \
     blackjax \
     bridgestan
 
-# Now install R and littler, and create a link for littler in /usr/local/bin
-# Default CRAN repo is now set by R itself, and littler knows about it too
+# R Stuff
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
