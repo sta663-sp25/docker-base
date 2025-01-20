@@ -69,13 +69,13 @@ RUN apt-get install -yq --no-install-recommends \
     libarmadillo-dev \
     libeigen3-dev
 
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.39/quarto-1.6.39-linux-amd64.deb \
+RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.40/quarto-1.6.40-linux-amd64.deb \
     && DEBIAN_FRONTEND=noninteractive gdebi --n quarto-*-linux-amd64.deb \
     && rm quarto-*-linux-amd64.deb
 
 # python and related stuff
 RUN apt-get install -y --no-install-recommends \
-    python3-dev python3-pip \
+    python3-dev python3-pip && \
     ln -sf /usr/bin/python3 /usr/bin/python
 
 RUN pip install \
