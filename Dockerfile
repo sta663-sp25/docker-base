@@ -75,11 +75,8 @@ RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.39/quar
 
 # python and related stuff
 RUN apt-get install -y --no-install-recommends \
-    python3-dev \
-    ln -sf /usr/bin/python3 /usr/bin/python && \
-    wget --quiet https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py && \
-    python3 /tmp/get-pip.py && \
-    rm -f /tmp/get-pip.py
+    python3-dev python3-pip \
+    ln -sf /usr/bin/python3 /usr/bin/python
 
 RUN pip install \
     jupyter \
