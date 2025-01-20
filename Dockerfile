@@ -93,24 +93,19 @@ RUN pyenv global ${PYTHON_VERSION}
 RUN pip install \
     jupyter \
     notebook \
-    jupyterlab \
-    ipykernel \
     numpy \
-    ipywidgets \
     pandas \
+    polars \
     matplotlib \
     scipy \
     seaborn \
     scikit-learn \
-    scikit-image \
     statsmodels \
     sympy \
     cython \
     patsy \
     numba \
     bokeh \
-    sqlalchemy \
-    beautifulsoup4 \
     pandas-datareader \
     ipython-sql \
     pandasql \
@@ -120,11 +115,8 @@ RUN pip install \
     pystan \
     arrow \
     scikit-plot \
-    torch \
     jax \
-    shiny \
     shapely \
-    nbdev \
     numpyro \
     blackjax \
     bridgestan
