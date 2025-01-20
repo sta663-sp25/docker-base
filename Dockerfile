@@ -75,10 +75,11 @@ RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.40/quar
 
 # python and related stuff
 RUN apt-get install -y  \
-    python3-dev python3-full python3-pip && \
-    ln -sf /usr/bin/python3 /usr/bin/python
+    python3-dev python3-full python3-pip pipx && \
+    ln -sf /usr/bin/python3 /usr/bin/python && \
+    pipx ensurepath
 
-RUN pip install \
+RUN pipx install --include-deps \
     jupyter \
     notebook \
     jupyterlab \
