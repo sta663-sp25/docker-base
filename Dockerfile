@@ -74,8 +74,8 @@ RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.40/quar
     && rm quarto-*-linux-amd64.deb
 
 # python and related stuff
-RUN apt-get install -y --no-install-recommends \
-    python3-dev python3-pip && \
+RUN apt-get install -y  \
+    python3-dev python3-full python3-pip && \
     ln -sf /usr/bin/python3 /usr/bin/python
 
 RUN pip install \
