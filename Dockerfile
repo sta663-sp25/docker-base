@@ -46,7 +46,8 @@ RUN apt-get install -y --no-install-recommends \
     pandoc \
     libmagick++-dev \
     libglpk-dev \
-    libnode-dev
+    libnode-dev \
+    libncurses-dev
 
 RUN apt-get install -yq --no-install-recommends \
     wget \
@@ -89,7 +90,7 @@ ENV PYTHON_VERSION=3.12.8
 RUN pyenv install ${PYTHON_VERSION}
 RUN pyenv global ${PYTHON_VERSION}
 
-RUN pip install --include-deps \
+RUN pip install \
     jupyter \
     notebook \
     jupyterlab \
