@@ -119,7 +119,8 @@ RUN pip install \
     shapely \
     numpyro \
     blackjax \
-    bridgestan
+    bridgestan \
+    pyarrow
 
 # R Stuff
 
