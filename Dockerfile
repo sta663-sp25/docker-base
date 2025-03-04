@@ -91,37 +91,9 @@ ENV PYTHON_VERSION 3.12.8
 RUN pyenv install ${PYTHON_VERSION}
 RUN pyenv global ${PYTHON_VERSION}
 
-RUN pip install \
-    jupyter \
-    notebook \
-    numpy \
-    pandas \
-    polars \
-    matplotlib \
-    scipy \
-    seaborn \
-    scikit-learn \
-    statsmodels \
-    sympy \
-    cython \
-    patsy \
-    numba \
-    bokeh \
-    pandas-datareader \
-    ipython-sql \
-    pandasql \
-    memory_profiler \
-    ipyparallel \
-    pymc \
-    pystan \
-    arrow \
-    scikit-plot \
-    jax \
-    shapely \
-    numpyro \
-    blackjax \
-    bridgestan \
-    pyarrow
+ADD requirements.txt /root/requirements.txt
+
+RUN pip install -r /root/requirements.txt
 
 # R Stuff
 
@@ -146,6 +118,8 @@ ADD Rprofile.site /usr/lib/R/etc/Rprofile.site
 
 RUN install.r devtools rmarkdown tidyverse gifski reticulate \
  && installGithub.r rundel/checklist rundel/parsermd
+
+RUN Rscipt -e "reticulate::py_install(readLines('/root/requirements.txt'))"
 
 RUN apt-get update \
  && apt-get install -y pandoc libmagick++-dev
