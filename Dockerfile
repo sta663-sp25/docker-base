@@ -75,20 +75,21 @@ RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.40/quar
     && rm quarto-*-linux-amd64.deb
 
 # python and related stuff
-RUN apt-get install -y  \
-    python3-dev python3-full python3-pip && \
-    ln -sf /usr/bin/python3 /usr/bin/python
+#RUN apt-get install -y  \
+#    python3-dev python3-full python3-pip && \
+#    ln -sf /usr/bin/python3 /usr/bin/python
 
-#ENV HOME="/root"
-#WORKDIR ${HOME}
-#RUN apt-get install -y git
-#RUN git clone --depth=1 https://github.com/pyenv/pyenv.git .pyenv
-#ENV PYENV_ROOT="${HOME}/.pyenv"
-#ENV PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
+ENV HOME "/root"
+WORKDIR ${HOME}
+RUN apt-get install -y git
+RUN git clone --depth=1 https://github.com/pyenv/pyenv.git .pyenv
+ENV PYENV_ROOT "${HOME}/.pyenv"
+ENV PATH "${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 
-#ENV PYTHON_VERSION=3.12.8
-#RUN pyenv install ${PYTHON_VERSION}
-#RUN pyenv global ${PYTHON_VERSION}
+ENV PYTHON_CONFIGURE_OPTS "--enable-shared"
+ENV PYTHON_VERSION 3.12.8
+RUN pyenv install ${PYTHON_VERSION}
+RUN pyenv global ${PYTHON_VERSION}
 
 RUN pip install \
     jupyter \
