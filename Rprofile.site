@@ -6,4 +6,4 @@ options(
     repos = c(CRAN = "https://packagemanager.rstudio.com/all/__linux__/noble/latest")
 )
 
-reticulate::use_python("/root/.pyenv/shims/python3")
+#reticulate::use_python("/root/.pyenv/shims/python3")
