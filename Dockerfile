@@ -143,7 +143,7 @@ RUN apt-get update \
 
 ADD Rprofile.site /usr/lib/R/etc/Rprofile.site
 
-RUN install.r devtools rmarkdown tidyverse gifski \
+RUN install.r devtools rmarkdown tidyverse gifski reticulate \
  && installGithub.r rundel/checklist rundel/parsermd
 
 RUN apt-get update \
