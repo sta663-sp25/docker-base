@@ -119,7 +119,7 @@ ADD Rprofile.site /usr/lib/R/etc/Rprofile.site
 RUN install.r devtools rmarkdown tidyverse gifski reticulate \
  && installGithub.r rundel/checklist rundel/parsermd
 
-RUN Rscipt -e "reticulate::py_install(readLines('/root/requirements.txt'))"
+RUN Rscript -e "reticulate::py_install(readLines('/root/requirements.txt'))"
 
 RUN apt-get update \
  && apt-get install -y pandoc libmagick++-dev
