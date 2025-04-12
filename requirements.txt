@@ -28,3 +28,4 @@ numpyro
 blackjax
 bridgestan
 pyarrow
+torch
